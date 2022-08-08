@@ -1,25 +1,9 @@
 #include <stdarg.h>
 #include "main.h"
 
-int count_params(char *str)
-{
-	int count = 0;
-	int i = 0;
-
-	while (str[i] != '\0')
-	{
-		if (str[i] == '%')
-		{
-			i++;
-			count++;
-		}
-		i++;
-	}
-	return (count);
-}
-
 /**
  * print_string - parse string
+ * @str: string to print
  */
 
 void print_string(char *str)
@@ -35,6 +19,8 @@ void print_string(char *str)
 
 /**
  * _printf - implement printf in c
+ * @format: character string
+ * Return: 0 on success
  */
 
 int _printf(const char *format, ...)
@@ -68,6 +54,7 @@ int _printf(const char *format, ...)
 			else
 			{
 				char *st = va_arg(param_list, char*);
+
 				print_string(st);
 			}
 		}
